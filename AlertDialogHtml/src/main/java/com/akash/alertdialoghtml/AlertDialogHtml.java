@@ -17,20 +17,20 @@ public class AlertDialogHtml {
         alertDialog.setCancelable(false);
         alertDialog.setCanceledOnTouchOutside(false);
         if (isTwoButtons) {
-            alertDialog.setButton(Html.fromHtml(firstbutton), new DialogInterface.OnClickListener() {
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,Html.fromHtml(firstbutton), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     alertDialog.dismiss();
                 }
             });
 
-            alertDialog.setButton(Html.fromHtml(secondbutton), new DialogInterface.OnClickListener() {
+            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,Html.fromHtml(secondbutton), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     alertDialog.dismiss();
                 }
             });
 
         }else {
-            alertDialog.setButton(Html.fromHtml(firstbutton), new DialogInterface.OnClickListener() {
+            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,Html.fromHtml(firstbutton), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     alertDialog.dismiss();
                 }
