@@ -1,0 +1,3 @@
+rootProject.name = "AlertDialogHtmlSample"
+include ':app'
+include ':AlertDialogHtml'

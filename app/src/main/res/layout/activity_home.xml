@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/black">
+
+        <RelativeLayout
+            android:id="@+id/headerTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:elevation="10dp"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/img_backbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/txt_highlight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="2dp"
+                android:paddingTop="3dp"
+                android:text="@string/app_name"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <EditText
+        android:id="@+id/htmlTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="HTML TITLE"
+
+        />
+
+
+    <EditText
+        android:id="@+id/htmlMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/htmlTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="HTML MESSAGE"
+
+        />
+
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchIsButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/htmlMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:checked="false"
+        android:switchMinWidth="20dp"
+        android:text="Enable Both Buttons"
+        android:textOff="OFF"
+        android:textOn="ON" />
+
+
+    <EditText
+        android:id="@+id/htmlFirstButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switchIsButtons"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="First Button Label(HTML)"
+
+        />
+
+
+    <EditText
+
+        android:id="@+id/htmlSecondButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/htmlFirstButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Second Button Label(HTML)"
+
+        />
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnShowAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/htmlSecondButton"
+        android:layout_marginTop="4dp"
+        android:visibility="visible"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_500"
+        android:text="SHOW HTML ALERT"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:rippleColor="@color/purple_700" />
+
+
+
+
+</RelativeLayout>
