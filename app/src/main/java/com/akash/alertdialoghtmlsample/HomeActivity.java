@@ -31,6 +31,10 @@ public class HomeActivity extends AppCompatActivity {
     SwitchMaterial switchIsButtons;
     MaterialButton btnShowAlert;
     boolean isBothBUtton;
+    String msg;
+    String title;
+    String stringbuttonfirst;
+    String stringbuttonsecond;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         context = this;
         initUI();
+
+        title="<font color='#FFBB86FC'><b>Hello User</b></font>";
+        msg="<font color='#007b32'><u>Thank you for choosing this library</u></font>";
+        stringbuttonfirst="<font color='#FF03DAC5'><b>YES</b></font>";
+        stringbuttonsecond="<font color='#FF6200EE'><b>NO</b></font>";
+
+        htmlTitle.setText(title);
+        htmlMessage.setText(msg);
+        htmlFirstButton.setText(stringbuttonfirst);
+        htmlSecondButton.setText(stringbuttonsecond);
 
 
         switchIsButtons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -61,9 +75,8 @@ public class HomeActivity extends AppCompatActivity {
         btnShowAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "show Alert", Toast.LENGTH_SHORT).show();
 
-               showAlertDialog(context,getDrawable(R.drawable.ic_copy),htmlTitle.getText().toString().trim(),htmlMessage.getText().toString().trim(),true,htmlFirstButton.getText().toString().trim(),htmlSecondButton.getText().toString().trim());
+               AlertDialogHtml.showAlertDialog(context,getDrawable(R.drawable.ic_copy),htmlTitle.getText().toString().trim(),htmlMessage.getText().toString().trim(),isBothBUtton,htmlFirstButton.getText().toString().trim(),htmlSecondButton.getText().toString().trim());
 
             }
         });
@@ -73,35 +86,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-    public static void showAlertDialog(Context context, Drawable drawable, String title, String message, boolean isTwoButtons, String firstbutton, String secondbutton) {
-        final AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-        alertDialog.setMessage(Html.fromHtml(message));
-        alertDialog.setTitle(Html.fromHtml(title));
-        alertDialog.setIcon(drawable);
-        alertDialog.setCancelable(false);
-        alertDialog.setCanceledOnTouchOutside(false);
-        if (isTwoButtons) {
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,Html.fromHtml(firstbutton), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    alertDialog.dismiss();
-                }
-            });
-
-            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,Html.fromHtml(secondbutton), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    alertDialog.dismiss();
-                }
-            });
-
-        }else {
-            alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL,Html.fromHtml(firstbutton), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    alertDialog.dismiss();
-                }
-            });
-        }
-        alertDialog.show();
-    }
 
 
     /**
@@ -119,6 +103,9 @@ public class HomeActivity extends AppCompatActivity {
         btnShowAlert = findViewById(R.id.btnShowAlert);
 
     }
+
+
+
 
 
 }
