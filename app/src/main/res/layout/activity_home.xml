@@ -103,11 +103,26 @@
         android:textOn="ON" />
 
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchIshtml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switchIsButtons"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:checked="false"
+        android:switchMinWidth="20dp"
+        android:text="USE HTML STYLE"
+        android:textOff="OFF"
+        android:textOn="ON" />
+
+
     <EditText
         android:id="@+id/htmlFirstButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/switchIsButtons"
+        android:layout_below="@+id/switchIshtml"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"

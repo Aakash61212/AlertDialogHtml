@@ -19,6 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.akash.alertdialoghtml.AlertDialogHtml;
+import com.akash.alertdialoghtml.AlertDialogHtmlListner;
+import com.akash.alertdialoghtml.Font;
+import com.akash.alertdialoghtml.InputType;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
@@ -28,9 +31,9 @@ public class HomeActivity extends AppCompatActivity {
     Context context;
 
     EditText htmlTitle, htmlMessage, htmlFirstButton, htmlSecondButton;
-    SwitchMaterial switchIsButtons;
+    SwitchMaterial switchIsButtons, switchIsHTML;
     MaterialButton btnShowAlert;
-    boolean isBothBUtton;
+    boolean isBothBUtton, isHtmlColor;
     String msg;
     String title;
     String stringbuttonfirst;
@@ -43,10 +46,10 @@ public class HomeActivity extends AppCompatActivity {
         context = this;
         initUI();
 
-        title="<font color='#FFBB86FC'><b>Hello User</b></font>";
-        msg="<font color='#007b32'><u>Thank you for choosing this library</u></font>";
-        stringbuttonfirst="<font color='#FF03DAC5'><b>YES</b></font>";
-        stringbuttonsecond="<font color='#FF6200EE'><b>NO</b></font>";
+        title = "<font color='#BB86FC'><b>Hello User</b></font>";
+        msg = "<font color='#007b32'><u>Thank you for choosing this library</u></font>";
+        stringbuttonfirst = "<font color='#3700B3'><b>YES</b></font>";
+        stringbuttonsecond = "<font color='#FF6200'><b>NO</b></font>";
 
         htmlTitle.setText(title);
         htmlMessage.setText(msg);
@@ -60,32 +63,66 @@ public class HomeActivity extends AppCompatActivity {
                 if (isChecked) {
                     Toast.makeText(context, "Two buttons Enabled", Toast.LENGTH_SHORT).show();
                     htmlSecondButton.setVisibility(View.VISIBLE);
-                    isBothBUtton=isChecked;
+                    isBothBUtton = isChecked;
                 } else {
 
                     Toast.makeText(context, "Two buttons Disabled", Toast.LENGTH_SHORT).show();
                     htmlSecondButton.setVisibility(View.GONE);
-                    isBothBUtton=isChecked;
+                    isBothBUtton = isChecked;
+                }
+            }
+        });
+
+        switchIsHTML.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(context, "Html Color Enabled", Toast.LENGTH_SHORT).show();
+
+                    isHtmlColor = isChecked;
+                } else {
+
+                    Toast.makeText(context, "Html Color Disabled", Toast.LENGTH_SHORT).show();
+                    isHtmlColor = isChecked;
                 }
             }
         });
 
 
-
         btnShowAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new AlertDialogHtml.Builder(context)
+                        .setTitle(title)
+                        .setMessage(msg)
+                        .setPositiveBtnText(stringbuttonfirst)
+                        .setNegativeBtnText(stringbuttonsecond)
+                        .setCancelableOnTouchOutside(true)
+                        .setCancelable(true)
+                        .setFont(Font.QUESTRAILREGULAR)
+                        .setImage(R.drawable.ic_copy)
+                        .setBothButtons(isBothBUtton)
+                        .setTitleTextColor(R.color.purple_700)
+                        .setHtmlColors(isHtmlColor)
+                        .setEditText(true, false, title, InputType.TEXT_SINGLE_LINE)
+                        .OnPositiveClicked(new AlertDialogHtmlListner() {
+                            @Override
+                            public void OnClick(String input) {
+                                Toast.makeText(context, "Positive", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .OnNegativeClicked(new AlertDialogHtmlListner() {
+                            @Override
+                            public void OnClick(String input) {
+                                Toast.makeText(context, "Negative", Toast.LENGTH_SHORT).show();
 
-               AlertDialogHtml.showAlertDialog(context,getDrawable(R.drawable.ic_copy),htmlTitle.getText().toString().trim(),htmlMessage.getText().toString().trim(),isBothBUtton,htmlFirstButton.getText().toString().trim(),htmlSecondButton.getText().toString().trim());
+                            }
+                        })
+                        .build();
 
             }
         });
     }
-
-
-
-
-
 
 
     /**
@@ -96,6 +133,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         switchIsButtons = findViewById(R.id.switchIsButtons);
+        switchIsHTML = findViewById(R.id.switchIshtml);
         htmlTitle = findViewById(R.id.htmlTitle);
         htmlMessage = findViewById(R.id.htmlMessage);
         htmlFirstButton = findViewById(R.id.htmlFirstButton);
@@ -103,9 +141,6 @@ public class HomeActivity extends AppCompatActivity {
         btnShowAlert = findViewById(R.id.btnShowAlert);
 
     }
-
-
-
 
 
 }
