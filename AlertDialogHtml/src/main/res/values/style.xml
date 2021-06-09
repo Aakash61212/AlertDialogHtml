@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AlertHtmlUpTheme" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowAnimationStyle">@style/AlertHtmlUpThemeAnims</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="AlertHtmlDownTheme" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowAnimationStyle">@style/AlertHtmlDownThemeAnims</item>
+    </style>
+    <style name="AlertHtmlUpThemeAnims">
+        <item name="android:windowEnterAnimation">@anim/alerthtml_up_enter</item>
+        <item name="android:windowExitAnimation">@anim/alerthtml_up_exit</item>
+    </style>
+    <style name="AlertHtmlDownThemeAnims">
+        <item name="android:windowEnterAnimation">@anim/alerthtml_down_enter</item>
+        <item name="android:windowExitAnimation">@anim/alerthtml_down_exit</item>
+    </style>
+</resources>
