@@ -105,21 +105,21 @@ public class HomeActivity extends AppCompatActivity {
                         .setImage(R.drawable.ic_copy)
                         .setBothButtons(isBothBUtton)
                         .setTitleTextColor(R.color.purple_700)
-                        .setCustomFont(R.font.questrialregular)
-                        .setAnimation(Animation.UP)
+                        .setCustomFont(R.font.fudgie)
+                        .setAnimation(Animation.DOWN)
                         .setHtmlColors(isHtmlColor)
                         .setButtonTextColor(R.color.purple_200)
-                        .setEditText(true, false, title, InputType.TEXT_SINGLE_LINE)
+                        .setEditText(true, false, title, InputType.PASSWORD)
                         .OnPositiveClicked(new AlertDialogHtmlListner() {
                             @Override
                             public void OnClick(String input) {
-                                Toast.makeText(context, "Positive", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Positive"+"Text Value : "+input, Toast.LENGTH_SHORT).show();
                             }
                         })
                         .OnNegativeClicked(new AlertDialogHtmlListner() {
                             @Override
                             public void OnClick(String input) {
-                                Toast.makeText(context, "Negative", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Negative"+"Text Value : "+input, Toast.LENGTH_SHORT).show();
 
                             }
                         })
