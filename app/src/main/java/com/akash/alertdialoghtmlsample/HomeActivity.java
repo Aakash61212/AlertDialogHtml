@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.akash.alertdialoghtml.AlertDialogHtml;
 import com.akash.alertdialoghtml.AlertDialogHtmlListner;
+import com.akash.alertdialoghtml.Animation;
 import com.akash.alertdialoghtml.Font;
 import com.akash.alertdialoghtml.InputType;
 import com.google.android.material.button.MaterialButton;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
     Context context;
+
 
     EditText htmlTitle, htmlMessage, htmlFirstButton, htmlSecondButton;
     SwitchMaterial switchIsButtons, switchIsHTML;
@@ -103,7 +105,10 @@ public class HomeActivity extends AppCompatActivity {
                         .setImage(R.drawable.ic_copy)
                         .setBothButtons(isBothBUtton)
                         .setTitleTextColor(R.color.purple_700)
+                        .setCustomFont(R.font.questrialregular)
+                        .setAnimation(Animation.UP)
                         .setHtmlColors(isHtmlColor)
+                        .setButtonTextColor(R.color.purple_200)
                         .setEditText(true, false, title, InputType.TEXT_SINGLE_LINE)
                         .OnPositiveClicked(new AlertDialogHtmlListner() {
                             @Override

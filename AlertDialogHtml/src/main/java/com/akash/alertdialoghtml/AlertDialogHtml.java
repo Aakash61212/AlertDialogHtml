@@ -99,7 +99,7 @@ public class AlertDialogHtml {
             return this;
         }
 
-        public Builder setImage(String imageUrl, int imagePercent) {
+        public Builder setImage(String imageUrl) {
             this.imageUrl = imageUrl;
             this.imageType = URL;
             return this;
