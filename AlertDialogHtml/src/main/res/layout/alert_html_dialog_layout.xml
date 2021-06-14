@@ -90,7 +90,7 @@
                 android:textAllCaps="true"
                 android:textColor="#000000"
                 android:visibility="visible"
-                app:rippleColor="@color/purple_700" />
+                app:rippleColor="#FF3700B3" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPositive"
@@ -106,7 +106,7 @@
                 android:textAllCaps="true"
                 android:textColor="#000000"
                 android:visibility="visible"
-                app:rippleColor="@color/purple_700" />
+                app:rippleColor="#FF3700B3" />
 
 
         </LinearLayout>
